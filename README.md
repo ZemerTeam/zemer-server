@@ -1,6 +1,6 @@
-# Metroserver
+# Zemer Server
 
-A high performance Go WebSocket server for Metrolist's "Listen Together" feature.  
+A high performance Go WebSocket server for Zemer's "Listen Together" feature.
 Utilizes protobuf and gzip compression for fast and efficient communication between clients.
 
 # Quickstart
@@ -9,8 +9,8 @@ Utilizes protobuf and gzip compression for fast and efficient communication betw
 You need to install go, protobuf, and protoc-gen-go
 
 ```bash
-git clone https://github.com/MetrolistGroup/metroserver
-cd metroserver
+git clone https://github.com/ZemerTeam/zemer-server
+cd zemer-server
 
 # Generate protobuf files (required first time)
 chmod +x generate_proto.sh
@@ -33,25 +33,25 @@ PORT=9000 ./main
 
 ```bash
 # Clone the repository
-git clone https://github.com/MetrolistGroup/metroserver
-cd metroserver
+git clone https://github.com/ZemerTeam/zemer-server
+cd zemer-server
 
 # Build locally
-docker build -t MetrolistGroup:latest .
+docker build -t zemer-server:latest .
 
 # Run on port 8080
 docker run -d \
   -p 8080:8080 \
   -e PORT=8080 \
-  --name metroserver \
-  metroserver:latest
+  --name zemer-server \
+  zemer-server:latest
 
 # Run on custom port
 docker run -d \
   -p 9000:9000 \
   -e PORT=9000 \
-  --name metroserver \
-  metroserver:latest
+  --name zemer-server \
+  zemer-server:latest
 ```
 
 ## Docker Compose
@@ -59,8 +59,8 @@ docker run -d \
 ```yaml
 ---
 services:
-  metroserver:
-    image: ghcr.io/MetrolistGroup/metroserver:latest
+  zemer-server:
+    image: ghcr.io/ZemerTeam/zemer-server:latest
     ports:
       - "8080:8080"
     environment:
