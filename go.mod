@@ -1,4 +1,4 @@
-module github.com/MetrolistGroup/metroserver
+module github.com/ZemerTeam/zemer-server
 
 go 1.25.6
 

@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"io"
 
-	pb "github.com/MetrolistGroup/metroserver/proto"
+	pb "github.com/ZemerTeam/zemer-server/proto"
 	"google.golang.org/protobuf/proto"
 )
 
