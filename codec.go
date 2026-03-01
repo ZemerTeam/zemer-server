@@ -215,16 +215,16 @@ func toProtoMessage(payload interface{}) (proto.Message, error) {
 	case *KickedPayload:
 		return &pb.KickedPayload{Reason: p.Reason}, nil
 	case *SyncStatePayload:
-		pbPayload := &pb.SyncStatePayload{
+		roomState := &pb.RoomState{
 			IsPlaying:  p.IsPlaying,
 			Position:   p.Position,
 			LastUpdate: p.LastUpdate,
 			Volume:     float32(p.Volume),
 		}
 		if p.CurrentTrack != nil {
-			pbPayload.CurrentTrack = trackInfoToProto(p.CurrentTrack)
+			roomState.CurrentTrack = trackInfoToProto(p.CurrentTrack)
 		}
-		return pbPayload, nil
+		return &pb.SyncStatePayload{RoomState: roomState}, nil
 	case *ReconnectedPayload:
 		pbPayload := &pb.ReconnectedPayload{
 			RoomCode: p.RoomCode,
@@ -294,16 +294,16 @@ func toProtoMessage(payload interface{}) (proto.Message, error) {
 	case KickedPayload:
 		return &pb.KickedPayload{Reason: p.Reason}, nil
 	case SyncStatePayload:
-		pbPayload := &pb.SyncStatePayload{
+		roomState := &pb.RoomState{
 			IsPlaying:  p.IsPlaying,
 			Position:   p.Position,
 			LastUpdate: p.LastUpdate,
 			Volume:     float32(p.Volume),
 		}
 		if p.CurrentTrack != nil {
-			pbPayload.CurrentTrack = trackInfoToProto(p.CurrentTrack)
+			roomState.CurrentTrack = trackInfoToProto(p.CurrentTrack)
 		}
-		return pbPayload, nil
+		return &pb.SyncStatePayload{RoomState: roomState}, nil
 	case ReconnectedPayload:
 		pbPayload := &pb.ReconnectedPayload{
 			RoomCode: p.RoomCode,
